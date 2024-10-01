@@ -1,0 +1,8 @@
+@media only screen and (max-width: 500px) {
+  .stop_motion {
+    display: none;
+  }
+  .access_padd {
+    margin: 16px !important;
+  }
+}

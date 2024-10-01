@@ -1,0 +1,21 @@
+.all_option:hover {
+  background-color: black;
+  color: white;
+}
+
+.model_hover:hover > img {
+  transform: scale(1.05);
+  transition: all linear 0.2s;
+}
+
+.model_hover > img {
+  transition: all linear 0.4s;
+}
+@media only screen and (max-width: 600px) {
+  .mb_bestSellingSwiper {
+    display: block !important;
+  }
+  .bestSellingFlex {
+    display: none !important;
+  }
+}

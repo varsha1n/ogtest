@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Slab&family=Rufina&display=swap");
+
+body {
+  width: 100vw;
+  scroll-behavior: calc(100vh * 10%);
+  /* overflow: hidden; */
+}
+@media only screen and (max-width: 1000px) {
+  body {
+    font-size: 12px;
+  }
+}

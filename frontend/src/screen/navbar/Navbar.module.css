@@ -1,0 +1,30 @@
+.categories:hover {
+  background-color: white !important;
+  padding: 0 !important;
+  color: slategrey;
+}
+.categories {
+  transform: translateY(-20%);
+  font-size: 1rem !important;
+}
+.mb_navbar {
+  transform: translateY(20%);
+}
+@media only screen and (max-width: 500px) {
+  .mb_navbarSearch {
+    display: none;
+  }
+  .mb_navbar {
+    display: none;
+  }
+  li > a {
+    padding: 0 !important;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .mb_logoCenter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-100%);
+  }
+}

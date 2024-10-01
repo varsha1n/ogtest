@@ -1,0 +1,37 @@
+.model_hover:hover > img {
+  transform: scale(1.05);
+  transition: all linear 0.2s;
+}
+
+.model_hover > img {
+  transition: all linear 0.4s;
+}
+
+@media only screen and (max-width: 500px) {
+  .stop_motion {
+    display: none;
+  }
+  .access_padd {
+    margin: 16px !important;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .stop_motion {
+    display: none;
+  }
+  .access_padd {
+    margin: 16px !important;
+  }
+  .model_hover {
+    width: 11rem !important;
+    height: 14rem !important;
+  }
+  .model_hover_container {
+    margin: 0 0 2rem 0 !important;
+  }
+  /* .product_container {
+      display: grid;
+      grid: auto / repeat(2, 1fr);
+      grid-gap: 40px 20px;
+    } */
+}

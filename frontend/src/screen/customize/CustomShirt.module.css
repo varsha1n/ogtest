@@ -1,0 +1,451 @@
+/* CustomShirt.module.css */
+
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftColumn {
+  padding: 10px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.patternContainer {
+  padding-left: 3vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: auto; /* Allows scrolling */
+}
+
+.patternItem {
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  align-items: center;
+  margin-bottom: 20px; /* Space between items */
+  padding:25px;
+  cursor: pointer;
+}
+
+.patternImage {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 10px; /* Space between image and info */
+  border-radius: 15px; /* Rounded corners */
+}
+
+.patternInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between; /* Aligns items to the extremes */
+  font-size: 14px;
+  color: 	#787878;
+}
+
+
+
+.selected {
+  padding:5px;
+  border: 2px solid blue; /* Highlight selected pattern */
+}
+
+.customContainer {
+  /* Pushes the button to the bottom */
+  margin-left:11vh;
+}
+
+.customizeButton {
+  padding: 10px 20px;
+  width:80%;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+.rightColumn {
+  width: 65%;
+  display: flex;
+  background-color: #F5F4F3;
+  flex-direction: row;
+  align-items: flex-start; /* Align items to the top */
+}
+
+.outputContainer {
+  display: flex;
+  align-items: center; /* Center the image vertically */
+  justify-content: center; /* Center the image horizontally */
+  margin-top: 3vh; /* Space between the container and the top */
+  margin-left: 0vh; /* Space between the container and the left */
+  width: 550px; /* Fixed width */
+  height: 550px; /* Fixed height */
+  position: relative; /* To use position properties inside */
+  overflow: hidden; /* Prevents image overflow */
+}
+
+.outputImage {
+  max-width: 100%; /* Scale the image to fit within the container */
+  max-height: 100%; /* Scale the image to fit within the container */
+  margin-left: 0; /* Reset margin for centering */
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the start */
+  
+  margin-top: 23vh; /* Remove the margin-top */
+ 
+  
+}
+
+.customtext {
+  font-weight: bold; /* Makes the text bold */
+  font-size: 2.5rem; /* Adjusts the text size, 1.5rem is just an example */
+}
+.clothtext {
+   /* Makes the text bold */
+   padding-top: 2vh;
+  font-size: 1.5rem; /* Adjusts the text size, 1.5rem is just an example */
+}
+.pricetext{
+  font-size: 1.5rem;
+  padding-bottom: 2vh;
+  color:	#787878;
+}
+
+
+.patternInfoContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.selectedPatternInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.addToCartButton {
+  
+  padding: 10px 20px;
+  background-color: white;
+  border: 1px solid black; /* Set border color to black */
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+
+.addToCartButton:hover {
+  background-color: black;
+  color:white;
+}
+
+.popupTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  margin: 20px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.popupContainer {
+  position: fixed;
+  
+  width: 35%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  animation: slideInFromLeft 0.5s ease-out;
+  animation-fill-mode: forwards;
+  padding-bottom: 10vh;
+}
+
+.popupContainer.exiting {
+  animation: slideOutToLeft 0.5s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.optionsContainer {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  
+}
+
+/* Custom Scrollbar for Webkit Browsers (Chrome, Safari) */
+.optionsContainer::-webkit-scrollbar {
+  width: 12px; /* Adjust scrollbar width */
+}
+
+.optionsContainer::-webkit-scrollbar-track {
+  background: transparent; /* Hide scrollbar track */
+}
+
+
+/* Custom Scrollbar for Firefox */
+.optionsContainer {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: #888 transparent; /* Thumb color and track color */
+}
+
+
+.optionSection {
+  margin-bottom: 30px;
+}
+
+.optionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: transform 0.3s;
+}
+
+.imageWrapper.selected {
+  border: 2px solid blue;
+  transform: scale(1.1);
+}
+
+.optionimage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.closeButton {
+  font-size: 24px;
+  width: 30px; /* Adjust as needed */
+  height: 30px; /* Adjust as needed */
+  padding: 0; /* Remove padding to keep the button size consistent */
+  background-color: red;
+  border-radius: 50%; /* Makes the button circular */
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centers the icon/text inside the button */
+}
+
+.arrowButtons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.leftArrowButton,
+.rightArrowButton {
+  background-color: #fff;
+  border: 2px solid #ddd;
+  padding: 5px 15px;
+  cursor: pointer;
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.leftArrowButton:hover,
+.rightArrowButton:hover {
+  background-color: #f0f0f0;
+}
+
+
+/* Animations */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.customizeButton,
+.customizeButton *,
+.customizeButton :after,
+.customizeButton :before,
+.customizeButton:after,
+.customizeButton:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.customizeButton {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: #000;
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  font-size: 100%;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  padding: 0;
+  text-transform: uppercase;
+  border-radius: 99rem;
+  border-width: 2px;
+  padding: 0.8rem 3rem;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.customizeButton:disabled {
+  cursor: default;
+}
+
+.customizeButton:-moz-focusring {
+  outline: auto;
+}
+
+.customizeButton svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.customizeButton [hidden] {
+  display: none;
+}
+
+.customizeButton .text-container {
+  display: block;
+  mix-blend-mode: difference;
+}
+
+.customizeButton .text {
+  display: block;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.customizeButton:hover .text {
+  -webkit-animation: move-up-alternate 0.3s forwards;
+  animation: move-up-alternate 0.3s forwards;
+  color: #000; /* Change text color to black on hover */
+}
+
+@-webkit-keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-up-alternate {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80%);
+  }
+
+  51% {
+    transform: translateY(-80%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.customizeButton:after,
+.customizeButton:before {
+  --skew: 0.2;
+  background: #fff;
+  content: "";
+  display: block;
+  height: 102%;
+  left: calc(-50% - 50% * var(--skew));
+  pointer-events: none;
+  position: absolute;
+  top: -104%;
+  transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.customizeButton:after {
+  --progress: 0%;
+  left: calc(50% + 50% * var(--skew));
+  top: 102%;
+  z-index: -1;
+}
+
+.customizeButton:hover:before {
+  --progress: 100%;
+}
+
+.customizeButton:hover:after {
+  --progress: -102%;
+}

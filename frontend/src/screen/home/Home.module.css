@@ -1,0 +1,141 @@
+.mb_homeSection {
+  margin-top: 5rem;
+}
+.text_button_container {
+  width: calc(100vw * 0.4);
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  position: relative;
+}
+.p1 {
+  font-size: 5rem;
+  line-height: 5rem;
+  font-family: "Rufina";
+  font-weight: 400;
+  letter-spacing: 0.05cm;
+}
+.p2 {
+  font-size: 5rem;
+  line-height: 5rem;
+  margin-bottom: 1rem;
+  font-family: "Rufina";
+  font-weight: 500;
+  /* color: #ff05c8; */
+  letter-spacing: 0.05cm;
+}
+
+.explore_button_container {
+  margin-top: 7rem;
+  /* position: absolute; */
+  /* bottom: 0%; */
+  /* left: 2%; */
+}
+.explore_button {
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  padding: 0.7rem 2rem 0.7rem 2rem;
+}
+
+.explore_button:hover {
+  background-color: rgb(38, 38, 38);
+}
+
+.model_img_div {
+  background-color: #bfbfbf;
+  overflow: hidden;
+  width: 35vw;
+  /* height: 100%; */
+  object-fit: contain;
+  border-radius: 7rem 1rem 7rem 1rem;
+}
+
+.dotted_bottom {
+  width: 6rem;
+  position: absolute;
+  z-index: 20;
+  bottom: 4rem;
+  /* left: 100%; */
+  transform: translateX(-50%);
+}
+
+.dotted_up {
+  width: 6rem;
+  position: absolute;
+  top: 0rem;
+  right: -10%;
+  z-index: 20;
+  /* transform: translateX(-50%); */
+}
+
+.model_container {
+  position: relative;
+  overflow: visible;
+  z-index: -10;
+}
+
+@media only screen and (max-width: 1000px) {
+  .p1,
+  .p2 {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .mb_homeSection {
+    margin-top: 0px !important;
+    height: 100vh !important;
+  }
+  .text_button_container {
+    /* display: block; */
+    width: 100vw;
+    /* height: 150vh !important; */
+    padding: 0rem 1rem 0rem 1rem;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  .explore_button_container {
+    position: absolute;
+    bottom: 20%;
+    /* z-index: 1; */
+    left: 7%;
+  }
+
+  .text_button_container p {
+    font-weight: 800;
+    line-height: 3.5rem;
+    position: relative;
+  }
+  .p1 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .mb_pDescription {
+    display: none !important;
+    font-weight: 500 !important;
+    font-size: 1rem;
+  }
+  .mb_model {
+    display: block !important;
+    position: absolute;
+    height: 80vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .mb_model > img {
+    width: 100vw;
+    height: 120vh;
+    /* object-fit: fill; */
+  }
+  .model_container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .stop_motion {
+    display: none;
+  }
+}

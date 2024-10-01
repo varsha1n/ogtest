@@ -1,0 +1,18 @@
+@media only screen and (max-width: 500px) {
+  .footer_feature {
+    width: 100vw !important;
+    font-size: 1rem !important;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+  }
+
+  .footer_section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .submit_footer {
+    border: 1.5px solid white !important;
+  }
+}

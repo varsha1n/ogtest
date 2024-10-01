@@ -1,0 +1,23 @@
+.model_hover:hover > img {
+  transform: scale(1.05);
+  transition: all linear 0.2s;
+}
+
+.model_hover > img {
+  transition: all linear 0.4s;
+}
+
+@media only screen and (max-width: 500px) {
+  .stop_motion {
+    display: none;
+  }
+  .mb_productImage {
+    height: auto !important;
+  }
+  .mb_product_descriptionflex {
+    width: 100% !important;
+  }
+  .mb_product_button {
+    width: 100% !important;
+  }
+}
