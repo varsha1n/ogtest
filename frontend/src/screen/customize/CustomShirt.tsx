@@ -4,7 +4,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux"; // Import useDispatch
 import { useSelector } from "react-redux";
 import { cartAction } from "@/redux/State";
-import { NavLink, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 
 
 interface Option {
@@ -19,7 +19,7 @@ interface Pattern {
   price: string;
 }
 
-const screen = window.screen.width;
+
 
 
 function CustomShirt(): React.ReactElement {
@@ -27,7 +27,7 @@ function CustomShirt(): React.ReactElement {
   const dispatch = useDispatch();
 
   const cart: any = useSelector((state) => state);
-  const quant = cart.cartReducer.find((ls: any) => ls.id == state.id);
+  
   const [selectedImages, setSelectedImages] = useState<{ [key: string]: string | null }>({
     Collar: "c5.png",
     Pocket: "p1.png",
@@ -117,19 +117,7 @@ function CustomShirt(): React.ReactElement {
     setShowBackImage(prev => !prev);
   };
 
-  const handleAddToCart = () => {
-    const patternInfo = getSelectedPatternInfo();
-    if (patternInfo) {
-      // Dispatch action to add to cart with the selected images and pattern information
-      dispatch(cartAction.addToCart({
-        id: Date.now(), // Use a unique id
-        pattern: patternInfo,
-        images: selectedImages,
-        outputImage: outputImage,
-      }));
-      console.log("Added to cart");
-    }
-  };
+  
 
   return (
     <div className={styles.main}>

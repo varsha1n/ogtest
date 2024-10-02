@@ -1,5 +1,5 @@
 
-import model2 from "../../assets/grid/best2.png";
+
 import trouser from "../../assets/grid/trouser.jpg";
 import model4 from "../../assets/grid/customModel.png";
 
