@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./CustomShirt.module.css";
 import axios from "axios";
-import { useDispatch } from "react-redux"; // Import useDispatch
-import { useSelector } from "react-redux";
-import { cartAction } from "@/redux/State";
-import {  useLocation } from "react-router-dom";
+
 
 
 interface Option {
@@ -23,10 +20,9 @@ interface Pattern {
 
 
 function CustomShirt(): React.ReactElement {
-  const { state } = useLocation();
-  const dispatch = useDispatch();
+  
 
-  const cart: any = useSelector((state) => state);
+  
   
   const [selectedImages, setSelectedImages] = useState<{ [key: string]: string | null }>({
     Collar: "c5.png",
@@ -168,7 +164,7 @@ function CustomShirt(): React.ReactElement {
               <p className={styles.pricetext}>{getSelectedPatternInfo()?.price || "$25"}</p>
             </div>
             <button className={styles.addToCartButton} onClick={() => {
-                  dispatch(cartAction.addToCart(state));
+                  
                   console.log("added");
                 }}>
               Add to Cart
