@@ -76,7 +76,7 @@ function CustomShirt(): React.ReactElement {
 
   const sendDataToBackend = (pattern: string, designs: { [key: string]: string | null }): void => {
     axios
-      .post("http://127.0.0.1:5000/designs", { pattern, designs })
+      .post("https://l8ghzlvolc.execute-api.ap-south-2.amazonaws.com/dev/designs", { pattern, designs })
       .then((response) => {
         // Convert the binary data (latin-1 encoded) back to Base64 on the frontend
         const blendImageBase64 = `data:image/png;base64,${btoa(response.data.blend_image)}`;
