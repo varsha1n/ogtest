@@ -17,7 +17,7 @@ def overlay_images(pattern_path, fit_path, fastening_path, cuff_path, Frontpocke
     print('Inside overlay_images function')
 
     # Process the front base image
-    base_image = Image.open("public/images/pbase.png").convert("RGBA")
+    base_image = Image.open("static/images/pbase.png").convert("RGBA")
     print(f"Base image size: {base_image.size}")
 
     fit_image = open_or_create_empty_image(fit_path).resize(base_image.size, Image.LANCZOS)
@@ -43,7 +43,7 @@ def overlay_images(pattern_path, fit_path, fastening_path, cuff_path, Frontpocke
     front_pockets_image.close()
 
     # Process the back base image
-    base_back_image = Image.open("public/images/pbase_back.png").convert("RGBA")
+    base_back_image = Image.open("static/images/pbase_back.png").convert("RGBA")
     print(f"Back base image size: {base_back_image.size}")
 
     back_pockets_image = open_or_create_empty_image(Backpockets_path).resize(base_back_image.size, Image.LANCZOS)

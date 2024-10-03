@@ -15,10 +15,10 @@ def overlay_images(pattern_path, fit_path, neckline_path, sleeve_path, intermedi
     Overlays collar, sleeve, button, pocket, and back images on the base pattern image.
     """
     print('Inside overlay_images function')
-    middle_path="public/images/dmiddle.png"
+    middle_path="static/images/dmiddle.png"
 
     # Process the front base image
-    base_image = Image.open("public/images/dbase.png").convert("RGBA")
+    base_image = Image.open("static/images/dbase.png").convert("RGBA")
     print(f"Base image size: {base_image.size}")
 
     fit_image = open_or_create_empty_image(fit_path).resize(base_image.size, Image.LANCZOS)

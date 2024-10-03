@@ -16,7 +16,7 @@ def overlay_images(pattern_path, collar_path, sleeve_path, button_path, pocket_p
     """
     print('Inside overlay_images function')
 
-    base_image = Image.open("public/images/base.png").convert("RGBA")
+    base_image = Image.open("static/images/base.png").convert("RGBA")
     print(f"Base image size: {base_image.size}")
 
     collar_image = open_or_create_empty_image(collar_path).resize(base_image.size, Image.LANCZOS)
@@ -46,12 +46,12 @@ def overlay_images(pattern_path, collar_path, sleeve_path, button_path, pocket_p
     button_image.close()
     pocket_image.close()
 
-    base_back_image = Image.open("public/images/cba1.png").convert("RGBA")
+    base_back_image = Image.open("static/images/cba1.png").convert("RGBA")
 
     if 's1' in sleeve_path:
-        sleeve_image = Image.open("public/images/sba1.png").convert("RGBA").resize(base_back_image.size, Image.LANCZOS)
+        sleeve_image = Image.open("static/images/sba1.png").convert("RGBA").resize(base_back_image.size, Image.LANCZOS)
     else:
-        sleeve_image = Image.open("public/images/sba2.png").convert("RGBA").resize(base_back_image.size, Image.LANCZOS)
+        sleeve_image = Image.open("static/images/sba2.png").convert("RGBA").resize(base_back_image.size, Image.LANCZOS)
 
     back_image = open_or_create_empty_image(back_path).resize(base_back_image.size, Image.LANCZOS)
 

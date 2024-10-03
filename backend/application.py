@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import subprocess
 import os
+import awsgi
 
 application = Flask(__name__)
 CORS(application)  # Enable CORS
@@ -12,7 +13,7 @@ def replace_jpg_with_png(file_path):
 
 # Define the output directory for images
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the directory of this script
-PUBLIC_DIR = os.path.abspath(os.path.join(BASE_DIR, 'public'))  # Get the public directory
+static_DIR = os.path.abspath(os.path.join(BASE_DIR, 'static'))  # Get the static directory
 
 
 
@@ -30,13 +31,13 @@ def handle_designs():
     output_path = os.path.join('blend_output.png')
     output_back_path="output_back.png"
     
-    # Prepend 'public/images/' to all paths and replace .jpg with .png
-    pattern_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ''
-    collar_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(designs.get('Collar', ''))) if 'Collar' in designs else ''
-    sleeve_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(designs.get('Sleeve', ''))) if 'Sleeve' in designs else ''
-    button_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(designs.get('Button', ''))) if 'Button' in designs else ''
-    pocket_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(designs.get('Pocket', ''))) if 'Pocket' in designs else ''
-    back_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(designs.get('Back', ''))) if 'Back' in designs else ''
+    # Prepend 'static/images/' to all paths and replace .jpg with .png
+    pattern_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ''
+    collar_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(designs.get('Collar', ''))) if 'Collar' in designs else ''
+    sleeve_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(designs.get('Sleeve', ''))) if 'Sleeve' in designs else ''
+    button_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(designs.get('Button', ''))) if 'Button' in designs else ''
+    pocket_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(designs.get('Pocket', ''))) if 'Pocket' in designs else ''
+    back_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(designs.get('Back', ''))) if 'Back' in designs else ''
     
     # Command to run the Python script
     command = f'python "{os.path.join(BASE_DIR, "blend.py")}" "{pattern_path}" "{collar_path}" "{sleeve_path}" "{button_path}" "{pocket_path}" "{back_path}" "{output_path}"'
@@ -85,13 +86,13 @@ def pants():
     # Construct the command to run the Python script
     python_script_path = os.path.join(BASE_DIR, "blend_pants.py")
 
-    # Prepend 'public/images/' to all paths and replace .jpg with .png
-    pattern_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ""
-    fit_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Fit)) if Fit else ""
-    fastenings_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Fastenings)) if Fastenings else ""
-    cuffs_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Cuffs)) if Cuffs else ""
-    frontpockets_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Frontpockets)) if Frontpockets else ""
-    backpockets_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Backpockets)) if Backpockets else ""
+    # Prepend 'static/images/' to all paths and replace .jpg with .png
+    pattern_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ""
+    fit_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Fit)) if Fit else ""
+    fastenings_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Fastenings)) if Fastenings else ""
+    cuffs_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Cuffs)) if Cuffs else ""
+    frontpockets_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Frontpockets)) if Frontpockets else ""
+    backpockets_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Backpockets)) if Backpockets else ""
 
         # Construct the command as a string
     command = f'python "{os.path.join(BASE_DIR, "blend_pants.py")}" "{pattern_path}" "{fit_path}" "{fastenings_path}" "{cuffs_path}" "{frontpockets_path}" "{backpockets_path}" "{output_path}"'
@@ -141,11 +142,11 @@ def dress():
     # Construct the command to run the Python script
     python_script_path = os.path.join(BASE_DIR, "blend_dress.py")
 
-    # Prepend 'public/images/' to all paths and replace .jpg with .png
-    pattern_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ""
-    fit_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Fit)) if Fit else ""
-    necklines_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Necklines)) if Necklines else ""
-    sleeves_path = os.path.join(PUBLIC_DIR, 'images', replace_jpg_with_png(Sleeves)) if Sleeves else ""
+    # Prepend 'static/images/' to all paths and replace .jpg with .png
+    pattern_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(pattern)) if pattern else ""
+    fit_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Fit)) if Fit else ""
+    necklines_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Necklines)) if Necklines else ""
+    sleeves_path = os.path.join(static_DIR, 'images', replace_jpg_with_png(Sleeves)) if Sleeves else ""
 
     command = f'python "{os.path.join(BASE_DIR, "blend_dress.py")}" "{pattern_path}" "{fit_path}" "{necklines_path}" "{sleeves_path}" "{output_path}"'
 
@@ -165,8 +166,7 @@ def dress():
         print(f"Error executing script: {e.output.decode()}")
         return jsonify({'error': 'Error processing images'}), 500
 
+def lambda_handler(event, context):
+    return awsgi.response(application, event, context, base64_content_types={"image/png"})
 
-
-if __name__ == '__main__':
-    application.run(host='0.0.0.0', port=5000)  # This line is optional if you're only using Gunicorn for deployment.
 
